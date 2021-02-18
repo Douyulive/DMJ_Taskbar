@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Threading;
-using BilibiliDM_PluginFramework;
+using DouyuDM_PluginFramework;
 using DMJ_Taskbar.Properties;
 
 namespace DMJ_Taskbar
@@ -15,14 +15,13 @@ namespace DMJ_Taskbar
 
         public Main()
         {
-            PluginAuth = "Elepover";
-            PluginCont = "elepover@outlook.com";
-            PluginDesc = "在任务栏通知区域创建一个图标以显示/隐藏弹幕姬";
+            PluginAuth = "Coel Wu & Elepover";
+            PluginCont = "coelwu78@protonmail.com";
+            PluginDesc = "在任务栏通知区域创建一个图标以显示/隐藏斗鱼弹幕姬";
             PluginName = "任务栏助手";
             PluginVer = Vars.AppVer.ToString();
             Connected += OnConnected;
             Disconnected += OnDisconnected;
-            ReceivedRoomCount += OnReceivedRoomCount;
         }
 
         public override void Start()
@@ -34,28 +33,25 @@ namespace DMJ_Taskbar
                 // 初始化菜单
                 Strip = new ContextMenu();
                 Strip.MenuItems.Add(Vars.UnknownMsg);           // 0
-                Strip.MenuItems.Add("捐赠 (外部链接)");          // 1
-                Strip.MenuItems.Add("关于 (外部链接)");          // 2
-                Strip.MenuItems.Add("打开插件面板");             // 3
-                Strip.MenuItems.Add("切换弹幕姬可见性");         // 4
-                Strip.MenuItems.Add("停用插件");                 // 5
-                Strip.MenuItems.Add("退出弹幕姬");               // 6
+                Strip.MenuItems.Add("关于 (外部链接)");          // 1
+                Strip.MenuItems.Add("打开插件面板");             // 2
+                Strip.MenuItems.Add("切换弹幕姬可见性");         // 3
+                Strip.MenuItems.Add("停用插件");                 // 4
+                Strip.MenuItems.Add("退出弹幕姬");               // 5
 
                 // 设置属性并分配事件
                 Strip.MenuItems[0].Checked = false;
 
-                Strip.MenuItems[1].Click += OnDonateClick;
+                Strip.MenuItems[1].Click += OnAboutClick;
 
-                Strip.MenuItems[2].Click += OnAboutClick;
+                Strip.MenuItems[2].Click += OnPluginPanelClick;
 
-                Strip.MenuItems[3].Click += OnPluginPanelClick;
+                Strip.MenuItems[3].Click += OnDoubleClick;
+                Strip.MenuItems[3].DefaultItem = true;
 
-                Strip.MenuItems[4].Click += OnDoubleClick;
-                Strip.MenuItems[4].DefaultItem = true;
+                Strip.MenuItems[4].Click += OnStop;
 
-                Strip.MenuItems[5].Click += OnStop;
-
-                Strip.MenuItems[6].Click += OnItemExitClick;
+                Strip.MenuItems[5].Click += OnItemExitClick;
                 
                 // 初始化图标
                 Icon = new NotifyIcon

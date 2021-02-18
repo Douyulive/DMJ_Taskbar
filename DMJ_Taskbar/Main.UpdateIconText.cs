@@ -1,4 +1,4 @@
-﻿using BilibiliDM_PluginFramework;
+﻿using DouyuDM_PluginFramework;
 using DMJ_Taskbar.Properties;
 
 namespace DMJ_Taskbar

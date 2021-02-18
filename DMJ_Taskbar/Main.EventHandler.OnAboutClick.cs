@@ -7,7 +7,7 @@ namespace DMJ_Taskbar
     {
         public void OnAboutClick(object sender, EventArgs e)
         {
-            Process.Start("https://www.danmuji.org/plugins/DMJ_Taskbar");
+            Process.Start("https://www.dydmj.org/plugins/DMJ_Taskbar");
         }
     }
 }

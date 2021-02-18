@@ -1,4 +1,4 @@
-﻿using BilibiliDM_PluginFramework;
+﻿using DouyuDM_PluginFramework;
 using System;
 using System.Windows;
 
